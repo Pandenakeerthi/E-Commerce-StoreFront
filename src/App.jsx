@@ -1,0 +1,26 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
+import Cart from "./pages/Cart";
+import Wishlist from "./pages/Wishlist";
+import Checkout from "./pages/Checkout";
+import { StoreProvider } from "./context/StoreContext";
+
+
+export default function App() {
+return (
+<StoreProvider>
+<BrowserRouter>
+<Navbar />
+<Routes>
+<Route path="/" element={<Home />} />
+<Route path="/product/:id" element={<ProductDetails />} />
+<Route path="/cart" element={<Cart />} />
+<Route path="/wishlist" element={<Wishlist />} />
+<Route path="/checkout" element={<Checkout />} />
+</Routes>
+</BrowserRouter>
+</StoreProvider>
+);
+}
